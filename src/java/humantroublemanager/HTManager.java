@@ -14,7 +14,7 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
-import javax.jms.Queue;
+import javax.jms.Topic;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
@@ -27,7 +27,7 @@ public class HTManager {
         private static ConnectionFactory connectionFactory;
     
     @Resource(mappedName="jms/Topic")
-private static Queue topic;
+private static Topic topic;
    
     public static void main(String[] args) {
                // String destType = topic;
