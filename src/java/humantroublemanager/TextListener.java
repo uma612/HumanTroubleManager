@@ -43,6 +43,8 @@ public class TextListener implements MessageListener {
             if (message instanceof TextMessage) {
                 msg = (TextMessage) message;
                 System.out.println("Reading message: " + msg.getText());
+                String str=msg.getText();
+                String[] damagemsg=str.split(";");
                 String popMessage = "Car out of order!!!";
                 JFrame frame = new JFrame();
                 frame.setSize(300,125);
@@ -72,8 +74,13 @@ public class TextListener implements MessageListener {
                 constraints.weighty = 1.0f;
                 constraints.insets = new Insets(5, 5, 5, 5);
                 constraints.fill = GridBagConstraints.BOTH;
-                JLabel messageLabel = new JLabel("<HtMl>"+message);
-                frame.add(messageLabel, constraints);
+                JLabel messageLabel;
+                for(int i=0;i<5;i++)
+                {
+                    messageLabel=new JLabel("<HtMl>"+damagemsg[i]);
+                    frame.add(messageLabel, constraints);
+                }
+                
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setVisible(true);
             } else {
