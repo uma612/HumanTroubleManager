@@ -45,6 +45,7 @@ public class TextListener implements MessageListener {
                 System.out.println("Reading message: " + msg.getText());
                 String str=msg.getText();
                 String[] damagemsg=str.split(";");
+                String[] desc={"Car Id: ","Brand: ","Reason: ","Member: ","Timestamp: "};
                 String popMessage = "Car out of order!!!";
                 JFrame frame = new JFrame();
                 frame.setSize(300,125);
@@ -54,7 +55,7 @@ public class TextListener implements MessageListener {
                 constraints.gridy = 0;
                 constraints.weightx = 1.0f;
                 constraints.weighty = 1.0f;
-                constraints.insets = new Insets(5, 5, 5, 5);
+                constraints.insets = new Insets(14,8,8,8);
                 constraints.fill = GridBagConstraints.BOTH;
                 JLabel headingLabel = new JLabel(popMessage);
                 headingLabel.setOpaque(false);
@@ -68,17 +69,15 @@ public class TextListener implements MessageListener {
                 closeButton.setMargin(new Insets(1, 4, 1, 4));
                 closeButton.setFocusable(false);
                 frame.add(closeButton, constraints);
-                constraints.gridx = 0;
-                constraints.gridy++;
-                constraints.weightx = 1.0f;
-                constraints.weighty = 1.0f;
-                constraints.insets = new Insets(5, 5, 5, 5);
+                constraints.gridx=0;
+                constraints.gridy=1;
                 constraints.fill = GridBagConstraints.BOTH;
                 JLabel messageLabel;
-                for(int i=0;i<5;i++)
+                for(int i=0,j=2;i<5;i++,j++)
                 {
-                    messageLabel=new JLabel("<HtMl>"+damagemsg[i]);
+                    messageLabel=new JLabel("<HtMl>"+desc[i]+damagemsg[i]);
                     frame.add(messageLabel, constraints);
+                   constraints.gridy=j;
                 }
                 
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
