@@ -65,10 +65,6 @@ public class TextListener implements MessageListener {
                 constraints.weighty = 0f;
                 constraints.fill = GridBagConstraints.NONE;
                 constraints.anchor = GridBagConstraints.NORTH;
-                JButton closeButton = new JButton("X");
-                closeButton.setMargin(new Insets(1, 4, 1, 4));
-                closeButton.setFocusable(false);
-                frame.add(closeButton, constraints);
                 constraints.gridx=0;
                 constraints.gridy=1;
                 constraints.fill = GridBagConstraints.BOTH;
